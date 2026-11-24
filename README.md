@@ -7,7 +7,9 @@ A Universal Robots UR5e arm simulated with MuJoCo inside Unity, with a learned w
 
 ## Demo
 
-[`Recordings/ur5e_ik_demo.mp4`](Recordings/ur5e_ik_demo.mp4) shows Step 4: IK turns the `TrackingTarget` sphere's position into joint goals, and the learned controller drives the arm to follow it as it loops in front of the arm. The see-through ghost arm is the world model's prediction, and the yellow line is its imagined path for the tool.
+[![The UR5e following the yellow target with IK and the learned controller](Recordings/ur5e_ik_demo.gif)](Recordings/ur5e_ik_demo.mp4)
+
+Step 4 in action: IK turns the `TrackingTarget` sphere's position into joint goals, and the learned controller drives the arm to follow it as it loops in front of the arm. The see-through ghost arm is the world model's prediction, and the yellow line is its imagined path for the tool. Click the GIF for the full 28-second video ([`Recordings/ur5e_ik_demo.mp4`](Recordings/ur5e_ik_demo.mp4)).
 
 ## Results (from the Unity rollout)
 
