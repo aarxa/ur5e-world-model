@@ -47,3 +47,13 @@ The UR5e has 6 revolute joints, each driven by a position servo (`general` actua
 Why can rollout collection stay in joint space while deployment tracks a Cartesian target?
 
 The world model and controller only describe dynamics: how joint angles and velocities respond to joint targets. That relationship doesn't depend on how a goal was chosen, so joint-space rollouts are enough to learn it. Turning a Cartesian target into joint goals is a kinematics problem. The arm's geometry is known exactly, and IK solves it with MuJoCo's forward kinematics, with no learning and no extra data. Deployment therefore just puts IK in front of the same joint-goal interface the controller was trained on. The one condition is that IK's joint solutions stay inside the region the rollouts covered, which is why `IkGoalProvider` clamps to that region.
+
+## AI assistance
+I used Claude (Anthropic), an AI coding assistant, through Claude Code while completing this assignment. It:
+
+- set up the Unity 6 project with the MuJoCo 3.17.0 plugin and Unity Inference Engine, and chose the 0.01 s fixed timestep after finding that the UR5e's servos oscillate at 0.02 s;
+- wrote the implementations of an editor helper (CA3SceneSetup.cs) that wires up the scene for each step;
+- tested the pipeline offline in Python MuJoCo, chose the world-model architecture and settings, and found and fixed the skeleton's malformed .meta files;
+- guided me through the Unity steps and debugged problems along the way (the Pause toggle, the importer's ur5e343 naming, scripts reloading during Play);
+- wrote this report from the measured results;
+- recorded the demo video and organized the files for submission.
